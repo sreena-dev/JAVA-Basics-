@@ -7,6 +7,11 @@ class MyException extends Exception
     
 }
 
+class MyExceptionWithoutParam extends Exception{
+    public MyExceptionWithoutParam(){
+        System.out.println("Printing from MyEXcepWithoutParam ");
+    }
+}
 
 public class customExcep {
     
@@ -19,7 +24,8 @@ public class customExcep {
                 if(arr[i]==0)
                 {
                     System.out.println("1,2,3");
-                    throw new MyException("its zero");
+                    //throw new MyException("its zero");
+                    throw new MyExceptionWithoutParam();
                 }
                 else{
                     System.out.println("no exception ");
@@ -27,10 +33,10 @@ public class customExcep {
                 }
             }
         }
-        catch(MyException e)
+        catch(MyExceptionWithoutParam e)
         {
-            //e.printStackTrace();
-            System.out.println("default one from " + e);
+            //e.printStackTrace();//class name ,location(main class where the exception in occoured)
+            System.out.println("default one from " + e);//its just giving the class name 
         }
     }
 }
